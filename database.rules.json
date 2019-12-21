@@ -1,0 +1,6 @@
+{
+ "rules":{
+  ".read": "query.startAt>0",
+  ".write": false
+ }
+}

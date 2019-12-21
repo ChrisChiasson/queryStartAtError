@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <script src="/__/firebase/7.6.1/firebase-app.js"></script>
+ <script src="/__/firebase/7.6.1/firebase-database.js"></script>
+ <script src="/__/firebase/init.js"></script>
+ <script>
+  function init(){
+   firebase.database.enableLogging(true);
+   const defaultApp=firebase.initializeApp(firebaseConfig);
+   const db=firebase.database(defaultApp);
+   const qry=db.ref("/").orderByChild('time').startAt(3);
+   //logging shows permission denied on next line
+   qry.once('child_added',s=>console.log("snapshot",s.val()));
+  }
+ 
+  init();
+ </script>
+</body>
+</html>
