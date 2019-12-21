@@ -10,7 +10,7 @@
    const db=firebase.database();
    const qry=db.ref("/").orderByChild('time').startAt(3);
    //logging shows permission denied on next line
-   qry.once('value',s=>console.log("snapshot",s.val()));
+   qry.once('value',s=>console.log("snapshot",JSON.stringify(s.val())));
   }
  
   init();
